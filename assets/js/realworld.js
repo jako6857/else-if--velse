@@ -1,23 +1,26 @@
-
 /* du må både ændre koden her, og i din HTML, hvis det er nødvendigt.. */
 
-
 /*Opgave 1: skriv en validering af svar i koden herunder. resultatet skal vises i myAnsverFeedbackElement når bruger trykker på myAnsverButton .
-der et korrekte svar:
+der er korrekte svar:
 nej 
 */
 
+const myAnsverInput = document.getElementById("answerOne");
+const myAnsverButton = document.getElementById("answerButton");
+const myAnsverFeedbackElement = document.getElementById("answerFeedback");
 
-const myAnsverInput = document.getElementById('answerOne');
-const myAnsverButton = document.getElementById('answerButton');
-const myAnsverFeedbackElement = document.getElementById('answerFeedback');
-
-myAnsverButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  /* din kode her. Skriv en alert der skriver "du har svarret rigtigt" hvis svarret er true
+/* din kode her. Skriv en alert der skriver "du har svarret rigtigt" hvis svarret er true
   og "du har svarret forkert" hvis svaret er false*/
+
+/*myAnsverButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (myAnsverInput.value === "true") {
+    myAnsverFeedbackElement.innerHTML = "Du har svaret rigtigt";
+  } else {
+    myAnsverFeedbackElement.innerHTML = "Du har svaret forkert";
+  }
   let myAnswer = myAnsverInput.value;
-  console.log('Answer is: ' + myAnswer);
+  console.log("Answer is: " + myAnswer);
 });
 
 /*Opgave 2: udkommenter opgave 1, og omskriv nu din funktion til to korrekte svar:
@@ -25,6 +28,16 @@ nej
 ja i disney film
 */
 
+myAnsverButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  let myAnswer = myAnsverInput.value;
+  if (myAnsverInput.value == "true" || myAnsverInput.value == "true") {
+    myAnsverFeedbackElement.innerHTML = "Du har svaret rigtigt";
+  } else {
+    myAnsverFeedbackElement.innerHTML = "Du har svaret forkert";
+  }
+  console.log("Answer is: " + myAnswer);
+});
 
 /*opgave 3: skriv en kode der valider formen med følgende elementer: (denne opgave er på extreme niveau) 
 
@@ -34,23 +47,15 @@ ja i disney film
  du må gerne bare consol.logge de forskellige tests i konsollen, men hvis du kan må du gerne lave feedback i elementet formValideringResult.
 */
 
-
-
-
-
-
-
-
 /* helper functions*/
 function validateEmail(email) {
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
 
-/* eks på kald:
-if (validateEmail("test@example.com")) {
-  console.log("Valid email address");
-} else {
-  console.log("Invalid email address");
-}
-*/
+// if (validateEmail("test@example.com")) {
+//   console.log("Valid email address");
+// } else {
+//   console.log("Invalid email address");
+// }
